@@ -29,6 +29,7 @@ public class Database {
     private ProgramareStream programareStream;
     private SalaStream salaStream;
     private SpitalStream spitalStream;
+    private ActivityStream activityStream;
 
     private void GenerateEntities(){
         autoritati = new TreeSet<Autoritate>();
@@ -116,6 +117,7 @@ public class Database {
         programareStream = ProgramareStream.getInstance();
         salaStream = SalaStream.getInstance();
         spitalStream = SpitalStream.getInstance();
+        activityStream = ActivityStream.getInstance();
 
         if(startWithData)
             GenerateEntities();
@@ -160,6 +162,7 @@ public class Database {
             return "Autoritati id nu exista\n";
 
         institutii.add(institutie);
+        activityStream.AddActivity("Insert");
         return "Introdus\n";
     }
     public String insert(@NotNull Autoritate autoritate) {
@@ -171,6 +174,7 @@ public class Database {
                 return "Id folosit\n";
 
         autoritati.add(autoritate);
+        activityStream.AddActivity("Insert");
         return "Introdus\n";
     }
     public String insert(@NotNull Spital spital){
@@ -200,6 +204,7 @@ public class Database {
             return "Autoritati id nu exista\n";
 
         spitale.add(spital);
+        activityStream.AddActivity("Insert");
         return "Introdus\n";
     }
     public String insert(@NotNull Sala sala){
@@ -221,6 +226,7 @@ public class Database {
             return "Institutii id nu exista\n";
 
         sali.add(sala);
+        activityStream.AddActivity("Insert");
         return "Introdus\n";
     }
     public String insert(@NotNull Pacient pacient){
@@ -232,6 +238,7 @@ public class Database {
                 return "Id folosit\n";
 
         pacienti.add(pacient);
+        activityStream.AddActivity("Insert");
         return "Introdus\n";
     }
     public String insert(@NotNull Ambulanta ambulanta){
@@ -243,6 +250,7 @@ public class Database {
                 return "Id folosit\n";
 
         ambulante.add(ambulanta);
+        activityStream.AddActivity("Insert");
         return "Introdus\n";
     }
     public String insert(@NotNull Echipament echipament){
@@ -281,6 +289,7 @@ public class Database {
         }
 
         echipamente.add(echipament);
+        activityStream.AddActivity("Insert");
         return "Introdus\n";
     }
     public String insert(@NotNull Angajat angajat) {
@@ -310,6 +319,7 @@ public class Database {
             return "Institutie id nu exista\n";
 
         angajati.add(angajat);
+        activityStream.AddActivity("Insert");
         return "Introdus\n";
     }
     public String insert(@NotNull Ambulantier ambulantier){
@@ -353,6 +363,7 @@ public class Database {
             return "Ambulanta id nu exista\n";
 
         ambulantieri.add(ambulantier);
+        activityStream.AddActivity("Insert");
         return "Introdus\n";
     }
     //de imbunatatit orele
@@ -402,6 +413,7 @@ public class Database {
             return "Id sala nu exista\n";
 
         programari.add(programare);
+        activityStream.AddActivity("Insert");
         return "Introdus\n";
     }
 
@@ -414,6 +426,7 @@ public class Database {
                 i.setIdAutoritate(-1);
 
         autoritati.remove(autoritate);
+        activityStream.AddActivity("Delete");
         return "Sters\n";
     }
     public String delete(@NotNull Programare programare){
@@ -421,6 +434,7 @@ public class Database {
             return "Nu exista\n";
 
         programari.remove(programare);
+        activityStream.AddActivity("Delete");
         return "Sters\n";
     }
     public String delete(@NotNull Pacient pacient){
@@ -436,6 +450,7 @@ public class Database {
             delete(prog);
 
         pacienti.remove(pacient);
+        activityStream.AddActivity("Delete");
         return "Sters\n";
     }
     public String delete(@NotNull Angajat angajat){
@@ -451,6 +466,7 @@ public class Database {
             delete(prog);
 
         angajati.remove(angajat);
+        activityStream.AddActivity("Delete");
         return "Sters\n";
     }
     public String delete(@NotNull Ambulantier ambulantier){
@@ -466,6 +482,7 @@ public class Database {
             delete(prog);
 
         ambulantieri.remove(ambulantier);
+        activityStream.AddActivity("Delete");
         return "Sters\n";
     }
     public String delete(@NotNull Echipament echipament){
@@ -473,6 +490,7 @@ public class Database {
             return "Nu exista\n";
 
         echipamente.remove(echipament);
+        activityStream.AddActivity("Delete");
         return "Sters\n";
     }
     public String delete(@NotNull Ambulanta ambulanta){
@@ -484,6 +502,7 @@ public class Database {
                 echip.setIdAmbulanta(-1);
 
         ambulante.remove(ambulanta);
+        activityStream.AddActivity("Delete");
         return "Sters\n";
     }
     public String delete(@NotNull Sala sala){
@@ -503,6 +522,7 @@ public class Database {
             delete(prog);
 
         sali.remove(sala);
+        activityStream.AddActivity("Delete");
         return "Sters\n";
     }
     public String delete(@NotNull Institutie institutie){
@@ -526,6 +546,7 @@ public class Database {
             delete(sala);
 
         institutii.remove(institutie);
+        activityStream.AddActivity("Delete");
         return "Sters\n";
     }
     public String delete(@NotNull Spital spital){
@@ -549,6 +570,7 @@ public class Database {
             delete(sala);
 
         institutii.remove(spital);
+        activityStream.AddActivity("Delete");
         return "Sters\n";
     }
 
@@ -565,6 +587,7 @@ public class Database {
             insert(autoritate);
         else
             return "Nu exista id autoritate\n";
+        activityStream.AddActivity("Update");
         return "Modificat\n";
     }
     public String update(@NotNull Institutie institutie){
@@ -580,6 +603,7 @@ public class Database {
             insert(institutie);
         else
             return "Nu exista id institutii\n";
+        activityStream.AddActivity("Update");
         return "Modificat\n";
     }
     public String update(@NotNull Spital spital){
@@ -595,6 +619,7 @@ public class Database {
             insert(spital);
         else
             return "Nu exista id spital\n";
+        activityStream.AddActivity("Update");
         return "Modificat\n";
     }
     public String update(@NotNull Sala sala){
@@ -610,6 +635,7 @@ public class Database {
             insert(sala);
         else
             return "Nu exista id sala\n";
+        activityStream.AddActivity("Update");
         return "Modificat\n";
     }
     public String update(@NotNull Pacient pacient){
@@ -625,6 +651,7 @@ public class Database {
             insert(pacient);
         else
             return "Nu exista id pacient\n";
+        activityStream.AddActivity("Update");
         return "Modificat\n";
     }
     public String update(@NotNull Ambulanta ambulanta){
@@ -640,6 +667,7 @@ public class Database {
             insert(ambulanta);
         else
             return "Nu exista id ambulanta\n";
+        activityStream.AddActivity("Update");
         return "Modificat\n";
     }
     public String update(@NotNull Echipament echipament){
@@ -655,6 +683,7 @@ public class Database {
             insert(echipament);
         else
             return "Nu exista id echipament\n";
+        activityStream.AddActivity("Update");
         return "Modificat\n";
     }
     public String update(@NotNull Angajat angajat){
@@ -670,6 +699,7 @@ public class Database {
             insert(angajat);
         else
             return "Nu exista id angajat\n";
+        activityStream.AddActivity("Update");
         return "Modificat\n";
     }
     public String update(@NotNull Ambulantier ambulantier){
@@ -685,37 +715,48 @@ public class Database {
             insert(ambulantier);
         else
             return "Nu exista id ambulantier\n";
+        activityStream.AddActivity("Update");
         return "Modificat\n";
     }
 
     public TreeSet<Autoritate> getAutoritati(){
+        activityStream.AddActivity("Select");
         return autoritati;
     }
     public ArrayList<Institutie> getInstitutii(){
+        activityStream.AddActivity("Select");
         return institutii;
     }
     public ArrayList<Spital> getSpitale(){
+        activityStream.AddActivity("Select");
         return spitale;
     }
     public ArrayList<Sala> getSali(){
+        activityStream.AddActivity("Select");
         return sali;
     }
     public ArrayList<Echipament> getEchipamente(){
+        activityStream.AddActivity("Select");
         return echipamente;
     }
     public ArrayList<Ambulanta> getAmbulante(){
+        activityStream.AddActivity("Select");
         return ambulante;
     }
     public ArrayList<Angajat> getAngajati(){
+        activityStream.AddActivity("Select");
         return angajati;
     }
     public ArrayList<Ambulantier> getAmbulantieri(){
+        activityStream.AddActivity("Select");
         return ambulantieri;
     }
     public TreeSet<Programare> getProgramari(){
+        activityStream.AddActivity("Select");
         return programari;
     }
     public TreeSet<Pacient> getPacienti(){
+        activityStream.AddActivity("Select");
         return pacienti;
     }
 
@@ -734,6 +775,7 @@ public class Database {
                     break;
                 }
 
+        activityStream.AddActivity("Select pacienti tratati");
         return result;
     }
     public ArrayList<Pacient> pacientiCuVarsta(Date minim, Date maxim){
@@ -741,6 +783,7 @@ public class Database {
         for(Pacient i : pacienti)
             if (i.getZiNastere().compareTo(minim) >= 0 && i.getZiNastere().compareTo(maxim) <= 0)
                 result.add(i);
+        activityStream.AddActivity("Select pacienti cu varsta");
         return result;
     }
     public ArrayList<Programare> programareInInstitutie(int id_institutie){
@@ -760,6 +803,7 @@ public class Database {
                 result.add(prog);
         }
 
+        activityStream.AddActivity("Select programare in institutie");
         return result;
     }
     public ArrayList<Programare> programareInInstitutie(int id_institutie, Date minim, Date maxim){
@@ -782,6 +826,7 @@ public class Database {
                 result.add(prog);
         }
 
+        activityStream.AddActivity("Select programare in institutie");
         return result;
     }
     public ArrayList<Echipament> echipamenteInInstitutie(int id_institutie){
@@ -800,12 +845,14 @@ public class Database {
             if(id_sali.contains(echip.getIdSala()) || id_ambulante.contains(echip.getIdAmbulanta()))
                 result.add(echip);
 
+        activityStream.AddActivity("Select echipamente in institutie");
         return result;
     }
     public void maresteSalarii(double suma_fixa, double procent, String denumire_job){
         for(Angajat angajat : angajati)
             if(angajat.getDenumireJob().compareTo(denumire_job) == 0)
                 angajat.setSalariu(Math.max(angajat.getSalariu() * procent + suma_fixa, 0.0));
+        activityStream.AddActivity("Update salarii");
     }
     public void trimitereEchipamenteRevizie(Sala sala) {
         for(Echipament echipament : echipamente)
@@ -813,6 +860,7 @@ public class Database {
                 echipament.setIdSala(-1);
                 echipament.setStareEchipament("in revizie");
             }
+        activityStream.AddActivity("Update salarii");
     }
     public void trimitereEchipamenteRevizie(Ambulanta ambulanta){
         for(Echipament echipament : echipamente)
@@ -820,6 +868,7 @@ public class Database {
                 echipament.setIdAmbulanta(-1);
                 echipament.setStareEchipament("in revizie");
             }
+        activityStream.AddActivity("Update trimitere echipamente in revizie");
     }
     public ArrayList<Programare> getProgramariInInterval(Date zi_minim, Date zi_maxim, String ora_minim, String ora_maxim){
         ArrayList<Programare> result = new ArrayList<>();
@@ -828,6 +877,7 @@ public class Database {
                     && programare.getOraStart().compareTo(ora_minim) >= 0 && programare.getOraIncheiat().compareTo(ora_maxim) <= 0)
                 result.add(programare);
 
+        activityStream.AddActivity("Select programari in interval");
         return result;
     }
 }

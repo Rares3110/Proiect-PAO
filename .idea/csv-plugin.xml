@@ -3,6 +3,13 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
+        <entry key="\src\main\resources\DateActivitate.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\src\main\resources\keptData\DateAmbulante.csv">
           <value>
             <Attribute>
@@ -66,7 +73,7 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="\src\main\resources\keptData\DateSpital.csv">
+        <entry key="\src\main\resources\keptData\DateSpitale.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
