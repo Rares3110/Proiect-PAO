@@ -1,0 +1,4 @@
+Id,id_institutie,nume,prenume,salariu,data_angajare,denumire_job
+100,1,Dabija,Iustin,27000.0,13.1.1978,manager
+101,2,Nitu,Clara,22000.0,1.11.1992,doctor
+103,3,Petrescu,Alesio,4000.0,2.2.1982,asistent

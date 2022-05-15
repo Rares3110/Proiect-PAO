@@ -1,0 +1,4 @@
+Id,id_sala,id_ambulanta,tip_echipament,stare_echipament,cost_achizitionare
+70000,12,-1,sigilant microbian,in folosinta,170000.0
+70001,-1,10000,targa,in folosinta,14600.0
+70002,13,-1,monitor functii vitale,in folosinta,26000.0
