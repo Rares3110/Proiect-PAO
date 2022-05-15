@@ -1,0 +1,5 @@
+Id,id_sala,tip_sala,spatiu_sala,etaj
+10,1,radiologie,67.0,4
+11,1,internare,94.0,1
+12,2,operatie,91.0,1
+13,3,consult,66.0,3
